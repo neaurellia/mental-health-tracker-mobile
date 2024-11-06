@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mental_health_tracker/menu.dart';
-import 'package:mental_health_tracker/moodentry_form.dart';
+import 'package:mental_health_tracker/screens/menu.dart';
+import 'package:mental_health_tracker/screens/moodentry_form.dart';
+
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -38,32 +39,31 @@ class LeftDrawer extends StatelessWidget {
               ],
             ),
           ),
-          ListTile(
-            leading: const Icon(Icons.home_outlined),
-            title: const Text('Home Page'),
-            // Redirection to MyHomePage
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MyHomePage(),
-                ),
-              );
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.mood),
-            title: const Text('Add Mood'),
-            // Redirection to MoodEntryFormPage
-            onTap: () {
-              Navigator.push(
+            ListTile(
+              leading: const Icon(Icons.home_outlined),
+              title: const Text('Home Page'),
+              // Redirection part to MyHomePage
+              onTap: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MyHomePage(),
+                    ));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.mood),
+              title: const Text('Add Mood'),
+              // Redirection part to MoodEntryFormPage
+              onTap: () {
+                Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const MoodEntryFormPage(),
                 ),
-              );
-            },
-          ),
+                );
+              },
+            ),
         ],
       ),
     );
