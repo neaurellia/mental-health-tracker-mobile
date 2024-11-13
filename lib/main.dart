@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mental_health_tracker/screens/menu.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:mental_health_tracker/screens/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,9 +13,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
+    return Provider(
+      create: (_) {
+        CookieRequest request = CookieRequest();
+        return request;
+      },
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
         // This is the theme of your application.
         //
         // TRY THIS: Try running your application with "flutter run". You'll see
@@ -29,11 +36,12 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSwatch(
-              primarySwatch: Colors.deepPurple,
-        ).copyWith(secondary: Colors.deepPurple[400]),        useMaterial3: true,
-      ),
-      home: MyHomePage(),
+          colorScheme: ColorScheme.fromSwatch(
+            primarySwatch: Colors.deepPurple,
+          ).copyWith(secondary: Colors.deepPurple[400]),        useMaterial3: true,
+        ),
+      home: LoginPage(),
+      )
     );
   }
 }
